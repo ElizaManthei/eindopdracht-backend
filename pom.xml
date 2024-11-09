@@ -5,14 +5,14 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.5</version>
+		<version>3.0.6</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>jk-specs.com.example</groupId>
-	<artifactId>jk-specs</artifactId>
+	<groupId>nl</groupId>
+	<artifactId>jkspecs</artifactId>
 	<version>0.0.1</version>
-	<name>jk-specs</name>
-	<description>JK-Specs</description>
+	<name>JKSpecs</name>
+	<description>JK Specs project</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>

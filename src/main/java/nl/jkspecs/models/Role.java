@@ -21,8 +21,8 @@ public class Role {
         this.roleName = roleName;
     }
     public Role(String roleName, Collection<User> users){
-        this.roleName = roleName;
-        this.users = users;
+        this.roleName           = roleName;
+        this.users              = users;
     }
     public Collection<User> getUsers() {
         return users;

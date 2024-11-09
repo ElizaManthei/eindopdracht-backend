@@ -22,7 +22,7 @@ public class User {
     public User() {}
 
     public User(String username, String firstName, String lastName, LocalDate birthday,
-                String email, String password, String mobileNumber) {
+                String email, String password, String mobileNumber, Collection<Role> roles) {
         this.username       = username;
         this.firstName      = firstName;
         this.lastName       = lastName;
@@ -30,6 +30,7 @@ public class User {
         this.email          = email;
         this.password       = password;
         this.mobileNumber   = mobileNumber;
+        this.roles          = roles;
     }
 
     public String getUserName() {
@@ -86,6 +87,14 @@ public class User {
 
     public void setMobileNumber(String mobileNumber) {
         this.mobileNumber = mobileNumber;
+    }
+
+    public Collection<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Collection<Role> roles) {
+        this.roles = roles;
     }
 
 }

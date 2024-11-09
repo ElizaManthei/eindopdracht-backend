@@ -2,6 +2,7 @@ package nl.jkspecs.controllers;
 
 import nl.jkspecs.dtos.findInputDtos.InputIdDto;
 import nl.jkspecs.dtos.findInputDtos.InputLastNameDateDto;
+import nl.jkspecs.dtos.role.RoleInputDto;
 import nl.jkspecs.dtos.user.UserDto;
 import nl.jkspecs.dtos.user.UserInputDto;
 import nl.jkspecs.service.UserService;
@@ -48,7 +49,10 @@ public class UserController {
 
         return ResponseEntity.ok(userService.getUserByBirthdayAndLastName(inputLastNameDateDto.inputDate, inputLastNameDateDto.lastName));
     }
-
+    @GetMapping("/role")
+    public ResponseEntity<Object> getUsersByRole(@RequestBody RoleInputDto role) {
+        return ResponseEntity.ok(userService.getUsersByRole(role.roleName));
+    }
     @PostMapping
     public ResponseEntity<Object> addUser(@RequestBody UserInputDto userInputDto, BindingResult br) {
         ResponseEntity<Object> sb = getObjectResponseEntity(br);
@@ -74,6 +78,14 @@ public class UserController {
         URI uri = URI.create(ServletUriComponentsBuilder
                 .fromCurrentRequest().path("/" + id).toUriString());
         return ResponseEntity.created(uri).body(updatedUser);
+    }
+
+    @PutMapping("/role/{id}")
+    public ResponseEntity<Object> assignRoleToUser(@RequestBody RoleInputDto roleInputDto,@PathVariable String id) {
+        UserDto user = userService.assignRoleToUser(roleInputDto.roleName, id);
+        URI uri = URI.create(ServletUriComponentsBuilder
+                .fromCurrentRequest().path("/").toUriString());
+        return ResponseEntity.created(uri).body(user);
     }
 
     public static ResponseEntity<Object> getObjectResponseEntity(BindingResult br) {

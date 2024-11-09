@@ -1,11 +1,8 @@
 package nl.jkspecs.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
+import jakarta.persistence.*;
 import java.time.LocalDate;
+import java.util.Collection;
 
 @Entity
 @Table(name = "users")
@@ -20,6 +17,8 @@ public class User {
     private String password;
     private String mobileNumber;
 
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Collection<Role> roles;
     public User() {}
 
     public User(String username, String firstName, String lastName, LocalDate birthday,

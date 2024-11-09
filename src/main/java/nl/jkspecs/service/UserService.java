@@ -92,7 +92,7 @@ public class UserService {
     public UserDto updateUser(String userId, UserInputDto userInputDto) {
         UserDto userDto = new UserDto();
         if (userInputDto.username != null)
-            throw new WrongDataException("Username cannot be changed");
+            throw new WrongDataException("De gebruikersnaam kan niet gewijzigd worden.");
         User user = userRepository.findById(userId).orElseThrow(() ->
                 new RecordNotFoundException(errorUserMsg));
         userInputDto.toUser(user);
@@ -114,7 +114,7 @@ public class UserService {
 
         for (Role r : user.getRoles()) {
             if (r.getRoleName().equals(roleNameDto)) {
-                throw new RecordNotFoundException("Uzytkownik ma juz ta role");
+                throw new RecordNotFoundException("Gebruiker heeft deze rol al");
             }
         }
 

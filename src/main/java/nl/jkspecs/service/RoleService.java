@@ -22,10 +22,10 @@ public class RoleService {
         return fromRoleListToRoleDtoList(roleRepository.findAll());
     }
 
-    public RoleDto getRoleByRoleName(String rolename) {
+    public RoleDto getRoleByRoleName(String roleName) {
 
-        Role role = roleRepository.findById(rolename).orElseThrow(() ->
-                new RecordNotFoundException("Role not found"));
+        Role role = roleRepository.findById(roleName).orElseThrow(() ->
+                new RecordNotFoundException("Role niet gevonden"));
         return fromRoleToRoleDto(role);
     }
     public RoleDto fromRoleToRoleDto(Role role) {

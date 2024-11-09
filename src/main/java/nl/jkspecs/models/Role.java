@@ -17,13 +17,7 @@ public class Role {
     private Collection<User> users;
 
     public Role(){}
-    public Role(String roleName){
-        this.roleName = roleName;
-    }
-    public Role(String roleName, Collection<User> users){
-        this.roleName           = roleName;
-        this.users              = users;
-    }
+
     public Collection<User> getUsers() {
         return users;
     }
@@ -36,7 +30,7 @@ public class Role {
         return roleName;
     }
 
-    public void setRoleName(String rolename) {
-        this.roleName = rolename;
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
     }
 }
